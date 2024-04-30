@@ -18,10 +18,12 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-//        User::factory()->create([
-//            'name' => 'Test User',
-//            'email' => 'test@example.com',
-//        ]);
+        User::factory()->create([
+            'name' => 'Test User',
+            'email' => 'jareer@email.com',
+            'password' => bcrypt('123'),
+        ]);
+
         Product::factory(4)
             ->hasVariants(5)
             ->has(Image::factory(3)->sequence( fn(Sequence $sequence) => [
