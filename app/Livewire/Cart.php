@@ -22,6 +22,18 @@ class Cart extends Component
         $this->dispatch('productRemovedFromCart');
     }
 
+    public function increment($itemId)
+    {
+        CartFactory::make()->items()->find($itemId)?->increment('quantity');
+    }
+    public function decrement($itemId)
+    {
+        $item = CartFactory::make()->items()->find($itemId);
+        if ($item->quantity > 1) {
+            $item->decrement('quantity');
+        }
+    }
+
     public function render()
     {
         return view('livewire.cart');
