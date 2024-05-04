@@ -4,7 +4,7 @@ namespace App\Factories;
 
 use App\Models\Cart;
 
-class CartFactory
+class  CartFactory
 {
     public static function make (): Cart
     {
