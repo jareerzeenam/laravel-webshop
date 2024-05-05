@@ -14,7 +14,15 @@ class CreateStripeCheckoutSession
         return $cart->user
             ->allowPromotionCodes()
             ->checkout(
-            $this->formatCartItems($cart->items)
+            $this->formatCartItems($cart->items),
+                [
+                    'customer_update' => [
+                        'shipping'=>'auto',
+                    ],
+                    'shipping_address_collection' => [
+                        'allowed_countries' => ['GB','US','CA','AU'],
+                    ],
+                ]
         );
     }
 
