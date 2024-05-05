@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Actions\WebShop\CreateStripeCheckoutSession;
 use App\Factories\CartFactory;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
@@ -9,6 +10,11 @@ use Livewire\Component;
 class Cart extends Component
 {
     #[Layout('layouts.app')]
+
+    public function checkout(CreateStripeCheckoutSession $checkoutSession)
+    {
+        return $checkoutSession->createFromCart($this->cart);
+    }
 
     public function getCartProperty()
     {
