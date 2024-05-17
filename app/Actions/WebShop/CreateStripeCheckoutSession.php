@@ -22,7 +22,11 @@ class CreateStripeCheckoutSession
                     'shipping_address_collection' => [
                         'allowed_countries' => ['GB','US','CA','AU'],
                     ],
-                ]
+                    'metadata' => [
+                        'user_id' => $cart->user->id,
+                        'cart_id' => $cart->id,
+                    ],
+                ],
         );
     }
 
