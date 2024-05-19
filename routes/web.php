@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', \App\Livewire\StoreFront::class)->name('home');
 Route::get('/products/{productId}', \App\Livewire\Product::class)->name('product.show');
 Route::get('/cart', \App\Livewire\Cart::class)->name('cart.show');
+Route::get('/checkout', \App\Livewire\CheckoutStatus::class)->name('checkout.show');
 
 //Route::middleware([
 //    'auth:sanctum',
