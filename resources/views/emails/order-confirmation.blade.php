@@ -26,4 +26,8 @@ Your order number is **(#{{ $order->id }})**.
     | | | | **Total** | **{{ $order->amount_total }}** |
 @endcomponent
 
+@component('mail::button',['url' => route('order.show',$order->id), 'color' => 'success'])
+    View Order
+@endcomponent
+
 @endcomponent
