@@ -1,23 +1,37 @@
-<x-panel class="mt-12 max-w-full mx-auto" title="My Orders">
-    <table class="w-full">
-        <thead>
-        <tr>
-            <th class="text-left">Order</th>
-            <th class="text-left">Ordered At</th>
-            <th class="text-right">Total</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach($this->orders as $order)
+<div>
+    <x-panel class="mt-12 max-w-full mx-auto" title="My Orders">
+        <table class="w-full table-auto ">
+            <thead>
             <tr>
-                <td>
-                    <a href="{{ route('order.show', $order->id) }}" class="underline font-medium">#{{ $order->id }}</a>
-                </td>
-                <td>{{ $order->created_at->diffForHumans() }}</td>
-                <td class="text-right">{{ $order->amount_total }}</td>
+                <th class="text-left">Order</th>
+                <th class="text-left">Ordered At</th>
+                <th class="text-right">Total</th>
             </tr>
-        @endforeach
-        </tbody>
+            </thead>
+            <tbody>
+            @foreach($this->orders as $order)
+                <tr class="hover:bg-black hover:text-white hover:animate-pulse">
+                    <td>
+                        <a href="{{ route('order.show', $order->id) }}" class="underline font-medium">#{{ $order->id }}</a>
+                    </td>
+                    <td>
+                        <a href="{{ route('order.show', $order->id) }}">
+                            {{ $order->created_at->diffForHumans() }}
+                        </a>
+                    </td>
+                    <td class="text-right">
+                        <a href="{{ route('order.show', $order->id) }}">
+                            {{ $order->amount_total }}
+                        </a>
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
 
-    </table>
-</x-panel>
+        </table>
+    </x-panel>
+    <x-button-link link="{{ route('home') }}">
+        Back to Store
+    </x-button-link>
+</div>
+
