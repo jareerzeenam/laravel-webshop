@@ -4,13 +4,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', \App\Livewire\StoreFront::class)->name('home');
 Route::get('/products/{productId}', \App\Livewire\Product::class)->name('product.show');
-Route::get('/cart', \App\Livewire\Cart::class)->name('cart.show');
+Route::get('/cart', \App\Livewire\Cart::class)->name('cart.index');
 
 
 Route::get('preview', function (){
-    $order = \App\Models\Order::find(8);
+    $cart = \App\Models\User::first()->cart;
 
-    return new \App\Mail\OrderConfirmation($order);
+    return new \App\Mail\AbandonedCartReminder($cart);
 });
 
 Route::middleware([
