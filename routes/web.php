@@ -7,6 +7,12 @@ Route::get('/products/{productId}', \App\Livewire\Product::class)->name('product
 Route::get('/cart', \App\Livewire\Cart::class)->name('cart.show');
 Route::get('/checkout', \App\Livewire\CheckoutStatus::class)->name('checkout.show');
 
+Route::get('preview', function (){
+    $order = \App\Models\Order::find(8);
+
+    return new \App\Mail\OrderConfirmation($order);
+});
+
 //Route::middleware([
 //    'auth:sanctum',
 //    config('jetstream.auth_session'),
