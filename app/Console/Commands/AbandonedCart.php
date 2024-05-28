@@ -28,7 +28,7 @@ class AbandonedCart extends Command
      */
     public function handle()
     {
-        $carts = Cart::withWhereHas('user')->whereDate('updated_at',today()->subDay())->count();
+        $carts = Cart::withWhereHas('user')->whereDate('updated_at',today()->subDay())->get();
 
         foreach($carts as $cart) {
             Mail::to($cart->user)->send(new AbandonedCartReminder($cart));

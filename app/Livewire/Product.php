@@ -4,13 +4,13 @@ namespace App\Livewire;
 
 use App\Actions\WebShop\AddProductVariantToCart;
 use Laravel\Jetstream\InteractsWithBanner;
-use Livewire\Attributes\Layout;
+use Livewire\Attributes\Computed;
+use App\Models\Product as ProductModel;
 use Livewire\Component;
 
 class Product extends Component
 {
     use InteractsWithBanner;
-    #[Layout('layouts.app')]
 
     public $productId;
 
@@ -23,7 +23,7 @@ class Product extends Component
 
     public function mount()
     {
-        $this->variant = $this->getProductProperty()->variants->value('id');
+        $this->variant = $this->product()->variants->value('id');
     }
 
     public function addToCart(AddProductVariantToCart $cart)
@@ -39,9 +39,10 @@ class Product extends Component
         $this->dispatch('productAddedToCart');
     }
 
-    public function getProductProperty()
+    #[Computed]
+    public function product()
     {
-        return \App\Models\Product::findOrFail($this->productId);
+        return ProductModel::findOrFail($this->productId);
     }
 
     public function render()

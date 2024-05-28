@@ -2,14 +2,14 @@
 
 namespace App\Livewire;
 
-use Livewire\Attributes\Layout;
+use Livewire\Attributes\Computed;
 use Livewire\Component;
 
 class MyOrders extends Component
 {
-    #[Layout('layouts.app')]
 
-    public function getOrdersProperty()
+    #[Computed]
+    public function orders()
     {
         return auth()->user()->orders;
     }

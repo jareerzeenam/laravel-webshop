@@ -3,14 +3,14 @@
 namespace App\Livewire;
 
 use App\Models\Product;
-use Livewire\Attributes\Layout;
+use Livewire\Attributes\Computed;
 use Livewire\Component;
 
 class StoreFront extends Component
 {
-    #[Layout('layouts.app')]
 
-    public function getProductsProperty()
+    #[Computed]
+    public function products()
     {
         return Product::query()->get();
     }
