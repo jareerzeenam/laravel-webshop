@@ -46,7 +46,7 @@ Welcome to the Laravel Web Shop! This application is designed to provide a seaml
 ![Abandoned Cart Email](https://github.com/jareerzeenam/laravel-webshop/blob/main/public/media/readme/abandoned-cart.png)
 
 ### Order Confirmation Email
-![Order Confirmation Email](https://github.com/jareerzeenam/laravel-webshop/blob/main/public/media/readme/order-confirmation.png)
+![Order Confirmation Email](https://github.com/jareerzeenam/laravel-webshop/blob/main/public/media/readme/order-confirmations.png)
 
 ## Setup Instructions
 
