@@ -25,7 +25,7 @@ Welcome to the Laravel Web Shop! This application is designed to provide a seaml
 ## Screenshots
 
 ### Products Page
-![Products Page](https://github.com/jareerzeenam/laravel-webshop/blob/main/public/media/readme/store_front.png)
+![Products Page](https://github.com/jareerzeenam/laravel-webshop/blob/main/public/media/readme/store-front.png)
 
 ### Product Details Page
 ![Product Details Page](https://github.com/jareerzeenam/laravel-webshop/blob/main/public/media/readme/product-view.png)
